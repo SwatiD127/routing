@@ -1,0 +1,73 @@
+
+ <!---------------------------------------- Interpolation ----------------------------------------->
+
+<h4>{{firstname}}</h4>
+<p>{{getTitle()}}</p>
+<p>{{ 'Hello & Welcome to '+ ' Angular Interpolation '}}</p>
+<p>100x80 = {{100*80}}</p>
+<p>Largest: {{max(100, 200)}}</p>
+<p>Show me <span class = "{{giveMeRed}}">red</span></p>
+<p style.color={{giveMeRed}}>This is red</p>
+<div><img src="{{itemImageUrl}}" style="height: 50px; weidth: 50px"></div>
+
+<label>Enter Your Name</label>
+<input (keyup)="0" #name>
+<p>Welcome {{name.value}} </p>
+
+<p>uppercase pipe: {{title | uppercase}}</p>
+<p>pipe chain: {{title | uppercase | lowercase}}</p>
+<p>json pipe: {{items | json}}</p>
+<hr>
+<!---------------------------------------- Event Binding ----------------------------------------->
+
+<button class="btn btn-success" (click)="onClick()">Event Binding</button>
+<!---------------------------------------- Property Binding ----------------------------------------->
+
+<button class="btn btn-primary mx-3" [disabled]="disable" >Property Binding</button>
+<h4><strong style="color: red;">Ngclass :</strong></h4>
+<hr>
+<!---------------------------------------- ngClass then ----------------------------------------->
+<div [ngClass]="'one'">ngClass Works</div>
+<!-- ngclass dynamic-->
+<div [ngClass]="clsname">ngClass Works</div>
+<!-- Multiple ngclass -->
+<div [ngClass]="[clsname, clsname2]">ngClass Works</div><br>
+ 
+<div [ngClass]="{'one':false,'two':true}">ngClass Works</div>
+<hr>
+<!---------------------------------------- ngIf else then ----------------------------------------->
+<h4><strong style="color: red;">Ngif :</strong></h4>
+<div *ngIf="showMsg">If Statement</div>
+<!-- ngIf with else statement-->
+<div *ngIf="showMsg; else showElseMsg">If Statement</div>
+<ng-template #showElseMsg>show else message</ng-template>
+<!-- ngIf with then and else statement -->
+
+<div *ngIf="showMsg; then showThenMsg; else showElseMsg"></div>
+<ng-template #showThenMsg>then statment executed</ng-template>
+<ng-template #showElseMsg>else statment executed</ng-template>
+<br>
+<hr>
+
+<!---------------------------------------- ngStyle----------------------------------------->
+<h4><strong style="color: red;">Ngstyle :</strong></h4>
+
+<div [ngStyle]="{'color':'orange'}">Ngstyle works</div>
+<!-- dynamic ngstyle -->
+<div [ngStyle]="{'color':colorVal, 'background-color':colorVal2}">Dynamic Ngstyle works</div> -->
+<hr>
+<!---------------------------------------- ngSwitch ----------------------------------------->
+<div>Input string : <input type='text' [(ngModel)]="num" >
+</div>
+<div [ngSwitch]="num">
+    <div *ngSwitchCase="'1'">First condition executed</div>
+    <div *ngSwitchCase="'2'">Second condition executed</div>
+    <div *ngSwitchCase="'3'">Third condition executed</div>
+    <div *ngSwitchCase="'4'">Fourth condition executed</div>
+    <div *ngSwitchCase="'5'">Fifth condition executed</div>
+    <div *ngSwitchDefault>This is Default</div>
+  </div>
+
+<!---------------------------------------- Two way binding ----------------------------------------->
+  <input type="text" [(ngModel)]="data">
+  <p>{{data}}</p>
